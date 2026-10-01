@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/hero",
+	"title": "Hero",
+	"description": "Large page-opening banner with heading, buttons, background image and an optional inline inquiry form.",
+	"category": "mcrp",
+	"icon": "cover-image",
+	"keywords": [
+		"banner",
+		"header",
+		"landing"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": false
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Start a career you'll love",
+				"text": "Hands-on programs across three campuses and online.",
+				"eyebrow": "Now enrolling"
+			}
+		}
+	}
+}

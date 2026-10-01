@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/campus-cards",
+	"title": "Campus Cards",
+	"description": "Cards linking to every campus (or a selection).",
+	"category": "mcrp",
+	"icon": "building",
+	"keywords": [
+		"campus",
+		"locations"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Our campuses"
+			}
+		}
+	}
+}

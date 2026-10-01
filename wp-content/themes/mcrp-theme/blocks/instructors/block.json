@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/instructors",
+	"title": "Faculty Grid",
+	"description": "Instructor profiles \u2013 hand-picked or by program/campus.",
+	"category": "mcrp",
+	"icon": "businessperson",
+	"keywords": [
+		"faculty",
+		"instructors",
+		"staff",
+		"team"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Meet our faculty"
+			}
+		}
+	}
+}

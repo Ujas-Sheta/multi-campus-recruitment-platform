@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/events",
+	"title": "Upcoming Events",
+	"description": "Upcoming open houses, info sessions, tours and webinars.",
+	"category": "mcrp",
+	"icon": "calendar-alt",
+	"keywords": [
+		"events",
+		"open house",
+		"info session"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Upcoming events"
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/media-text",
+	"title": "Media & Text",
+	"description": "Image or video beside rich text, checklist and buttons.",
+	"category": "mcrp-content",
+	"icon": "align-pull-left",
+	"keywords": [
+		"image",
+		"video",
+		"text",
+		"feature"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Learn by doing"
+			}
+		}
+	}
+}

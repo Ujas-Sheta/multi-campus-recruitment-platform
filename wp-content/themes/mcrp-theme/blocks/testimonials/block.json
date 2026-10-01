@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/testimonials",
+	"title": "Testimonials",
+	"description": "Student and graduate stories \u2013 by program, campus or hand-picked. Slider or grid.",
+	"category": "mcrp",
+	"icon": "format-quote",
+	"keywords": [
+		"reviews",
+		"stories",
+		"quotes"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Student stories"
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/section",
+	"title": "Section",
+	"description": "Styled section wrapper (background, spacing, heading) for any core or custom blocks.",
+	"category": "mcrp-content",
+	"icon": "screenoptions",
+	"keywords": [
+		"container",
+		"group",
+		"wrapper"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": true,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Section heading"
+			}
+		}
+	}
+}

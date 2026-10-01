@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/program-finder",
+	"title": "Program Finder",
+	"description": "Filterable, searchable program listing \u2013 or a hand-picked set of featured programs.",
+	"category": "mcrp",
+	"icon": "search",
+	"keywords": [
+		"programs",
+		"search",
+		"filter",
+		"courses"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Find your program"
+			}
+		}
+	}
+}

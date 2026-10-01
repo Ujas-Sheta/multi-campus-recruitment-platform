@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mcrp/inquiry-form",
+	"title": "Inquiry Form",
+	"description": "Request-for-information lead form with campaign/UTM attribution and CRM forwarding.",
+	"category": "mcrp",
+	"icon": "email-alt",
+	"keywords": [
+		"form",
+		"lead",
+		"rfi",
+		"contact"
+	],
+	"textdomain": "mcrp",
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false,
+		"mode": true,
+		"jsx": false,
+		"customClassName": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"sectionStyle": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"heading": "Request information"
+			}
+		}
+	}
+}
