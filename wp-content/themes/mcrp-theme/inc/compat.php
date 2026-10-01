@@ -9,7 +9,11 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'mcrp_get' ) ) {
 	function mcrp_get( string $name, $post_id = null, $default = null ) {
-		$value = function_exists( 'get_field' ) ? get_field( $name, $post_id ?? false ) : get_post_meta( $post_id ? (int) $post_id : get_the_ID(), $name, true );
+		if ( null === $post_id && isset( $GLOBALS['mcrp_block_data'] ) ) {
+			$value = mcrp_block_fallback_value( $name );
+		} else {
+			$value = function_exists( 'get_field' ) ? get_field( $name, $post_id ?? false ) : get_post_meta( $post_id ? (int) $post_id : get_the_ID(), $name, true );
+		}
 		return ( null === $value || '' === $value || false === $value || array() === $value ) ? $default : $value;
 	}
 }

@@ -84,7 +84,7 @@ npm run build   # or: npm run watch
 
 - Colours, fonts and spacing come from the Figma styles. They're set in `theme.json` (so the editor only shows the brand colours) and in `assets/src/scss/abstracts/_tokens.scss`.
 - ACF field groups are registered in PHP instead of saved in the database, so they live in git. Field keys follow `field_mcrp_{group}_{name}`, which lets the patterns and the demo importer reference them.
-- Templates use `mcrp_get()` instead of `get_field()` so the site doesn't fatal if ACF is deactivated.
+- Templates use `mcrp_get()` instead of `get_field()` so the site doesn't fatal if ACF is deactivated. Without ACF Pro the saved blocks still render on the front end (from the block data); you just can't edit them in the editor.
 - Programs, events, campuses and FAQs output JSON-LD.
 
 ### Things I'd still like to do

@@ -20,7 +20,10 @@ if ( ! function_exists( 'mcrp_get' ) ) {
 	 * @return mixed
 	 */
 	function mcrp_get( string $name, $post_id = null, $default = null ) {
-		if ( function_exists( 'get_field' ) ) {
+		if ( null === $post_id && function_exists( 'mcrp_block_fallback_value' ) && isset( $GLOBALS['mcrp_block_data'] ) ) {
+			// rendering a block without ACF (see theme inc/blocks.php)
+			$value = mcrp_block_fallback_value( $name );
+		} elseif ( function_exists( 'get_field' ) ) {
 			$value = get_field( $name, $post_id ?? false );
 		} elseif ( 'option' === $post_id || 'options' === $post_id ) {
 			$value = get_option( 'options_' . $name );

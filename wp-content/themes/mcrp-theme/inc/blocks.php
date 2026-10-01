@@ -23,20 +23,77 @@ function mcrp_block_dirs(): array {
 	return $dirs;
 }
 
-/**
- * Only register when ACF Pro is active.
- */
 add_action(
 	'init',
 	static function () {
-		if ( ! function_exists( 'acf_register_block_type' ) ) {
-			return;
-		}
 		foreach ( mcrp_block_dirs() as $dir ) {
 			register_block_type( $dir );
 		}
 	}
 );
+
+/**
+ * Fallback for when ACF Pro isn't active: still render the saved blocks on the
+ * front end straight from the block data, so pages don't go blank.
+ * (Editing them still needs ACF Pro.)
+ */
+add_filter(
+	'block_type_metadata_settings',
+	static function ( $settings, $metadata ) {
+		if ( function_exists( 'acf_register_block_type' ) || empty( $metadata['acf']['renderTemplate'] ) ) {
+			return $settings;
+		}
+		$template = dirname( $metadata['file'] ) . '/' . $metadata['acf']['renderTemplate'];
+
+		$settings['render_callback'] = static function ( $attributes, $content ) use ( $template ) {
+			$block       = $attributes;
+			$block['id'] = 'block_' . substr( md5( wp_json_encode( $attributes ) ), 0, 8 );
+			$is_preview  = false;
+			$post_id     = get_the_ID();
+
+			$previous                  = $GLOBALS['mcrp_block_data'] ?? null;
+			$GLOBALS['mcrp_block_data'] = (array) ( $attributes['data'] ?? array() );
+
+			ob_start();
+			include $template;
+			$html = (string) ob_get_clean();
+
+			if ( null === $previous ) {
+				unset( $GLOBALS['mcrp_block_data'] );
+			} else {
+				$GLOBALS['mcrp_block_data'] = $previous;
+			}
+
+			return preg_replace( '#<InnerBlocks[^>]*/>#', $content, $html );
+		};
+		return $settings;
+	},
+	10,
+	2
+);
+
+/**
+ * Reads a value from the current block's saved data (used by mcrp_get() in fallback mode).
+ * Repeaters are stored flattened (name = count, name_0_sub = value), so rebuild the rows.
+ */
+function mcrp_block_fallback_value( string $name ) {
+	$data = $GLOBALS['mcrp_block_data'] ?? array();
+	if ( ! preg_grep( '/^' . preg_quote( $name, '/' ) . '_0_/', array_keys( $data ) ) ) {
+		return $data[ $name ] ?? null;
+	}
+	$rows = array();
+	for ( $i = 0; $i < (int) $data[ $name ]; $i++ ) {
+		$prefix = $name . '_' . $i . '_';
+		$row    = array();
+		foreach ( $data as $key => $value ) {
+			if ( 0 === strpos( $key, $prefix ) ) {
+				$row[ substr( $key, strlen( $prefix ) ) ] = $value;
+			}
+		}
+		$rows[] = $row;
+	}
+	return $rows;
+}
 
 /**
  * Register each block's field group.
