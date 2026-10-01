@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="MCRP">
+	<description>WordPress Coding Standards for the Multi-Campus Recruitment Platform.</description>
+	<file>wp-content/plugins/mcrp-core</file>
+	<file>wp-content/themes/mcrp-theme</file>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/assets/dist/*</exclude-pattern>
+	<arg name="extensions" value="php"/>
+	<config name="minimum_supported_wp_version" value="6.4"/>
+	<config name="testVersion" value="8.1-"/>
+	<rule ref="WordPress"/>
+	<rule ref="WordPress.WP.I18n"><properties><property name="text_domain" type="array"><element value="mcrp"/></property></properties></rule>
+</ruleset>

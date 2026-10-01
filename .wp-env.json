@@ -1,0 +1,7 @@
+{
+	"core": "WordPress/WordPress#6.8",
+	"phpVersion": "8.2",
+	"plugins": [ "./advanced-custom-fields-pro.zip", "./wp-content/plugins/mcrp-core" ],
+	"themes": [ "./wp-content/themes/mcrp-theme" ],
+	"config": { "WP_DEBUG": true, "SCRIPT_DEBUG": true }
+}
