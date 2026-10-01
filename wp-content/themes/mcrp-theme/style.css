@@ -1,0 +1,15 @@
+/*
+Theme Name:        MCRP Campus
+Theme URI:         https://example.edu
+Description:       Custom theme for the Multi-Campus College Recruitment Platform. Program, campus, faculty and event templates plus a library of reusable ACF Pro Gutenberg blocks that let marketing teams build recruitment landing pages without developer help. Requires the "MCRP Core" plugin and ACF Pro.
+Author:            Ujas
+Version:           1.0.0
+Requires at least: 6.4
+Tested up to:      6.8
+Requires PHP:      8.1
+License:           GPL-2.0-or-later
+Text Domain:       mcrp
+Tags:              education, college, custom-blocks, block-patterns
+*/
+
+/* Compiled styles live in assets/dist/main.css (source: assets/src/scss). */
