@@ -1,0 +1,102 @@
+@use '../abstracts/mixins' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--header-h) + 1rem);
+
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+	margin: 0;
+	font-family: var(--f-body);
+	color: var(--c-ink);
+	background: var(--c-white);
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+iframe {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+	display: block;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	color: var(--c-primary);
+	text-underline-offset: .2em;
+	transition: color var(--t);
+
+	&:hover {
+		color: var(--c-accent);
+	}
+}
+
+:focus-visible {
+	@include focus-ring;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+.screen-reader-text {
+	@include visually-hidden;
+}
+
+.skip-link:focus {
+	position: fixed !important;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1000;
+	width: auto;
+	height: auto;
+	clip: auto;
+	padding: .75rem 1.25rem;
+	background: var(--c-white);
+	color: var(--c-primary);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow);
+	font-weight: 700;
+}
+
+.icon {
+	width: 1.15em;
+	height: 1.15em;
+	flex-shrink: 0;
+	vertical-align: -.2em;
+}
+
+.hp {
+	position: absolute;
+	left: -9999px;
+}

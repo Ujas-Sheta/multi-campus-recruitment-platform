@@ -1,0 +1,110 @@
+@use '../abstracts/tokens' as *;
+@use '../abstracts/mixins' as *;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--f-heading);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -.02em;
+	color: var(--c-ink);
+	margin: 0 0 .6em;
+	text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 1.1rem + .4vw, 1.4rem); letter-spacing: -.01em; }
+h4 { font-size: 1.125rem; }
+
+p {
+	margin: 0 0 1.1em;
+}
+
+.eyebrow {
+	display: inline-block;
+	margin: 0 0 .85rem;
+	font-family: var(--f-heading);
+	font-size: .8125rem;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--c-accent);
+}
+
+.section-heading {
+	max-width: 46rem;
+	margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
+
+	&--center {
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	&__title {
+		margin-bottom: .4em;
+	}
+
+	&__intro {
+		font-size: 1.125rem;
+		color: var(--c-muted);
+		margin: 0;
+	}
+}
+
+.small-print {
+	font-size: .875rem;
+	color: var(--c-muted);
+}
+
+// Gutenberg content
+.entry-content {
+	> * {
+		max-width: $container-narrow;
+		margin-inline: auto;
+		padding-inline: var(--gutter);
+	}
+
+	> .alignwide {
+		max-width: $container;
+	}
+
+	> .alignfull,
+	> .mcrp-block {
+		max-width: none;
+		padding-inline: 0;
+	}
+
+	&--flush > * {
+		max-width: none;
+		padding-inline: 0;
+	}
+
+	&--blocks > .mcrp-block.bg-white + .mcrp-block.bg-white,
+	&--blocks > .mcrp-block.bg-surface + .mcrp-block.bg-surface {
+		padding-top: 0;
+	}
+
+	ul, ol {
+		padding-left: 1.25em;
+	}
+
+	li {
+		margin-bottom: .35em;
+	}
+
+	blockquote {
+		border-left: 4px solid var(--c-accent);
+		margin-left: 0;
+		padding-left: 1.25rem;
+		font-size: 1.125rem;
+	}
+
+	.wp-block-button__link {
+		transition: background var(--t), transform var(--t);
+
+		&:hover {
+			transform: translateY(-1px);
+		}
+	}
+}
+

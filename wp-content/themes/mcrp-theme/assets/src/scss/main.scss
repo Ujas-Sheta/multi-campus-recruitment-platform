@@ -1,0 +1,16 @@
+// MCRP Campus - front-end styles.
+// Build: npm run build (sass -> assets/dist/main.css)
+
+@use 'abstracts/tokens';
+@use 'base/reset';
+@use 'base/typography';
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'components/buttons';
+@use 'components/badges';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/ui';
+@use 'blocks/hero';
+@use 'blocks/blocks';

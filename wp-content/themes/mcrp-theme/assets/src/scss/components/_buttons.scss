@@ -1,0 +1,126 @@
+@use '../abstracts/mixins' as *;
+
+.btn {
+	--btn-bg: var(--c-accent);
+	--btn-fg: var(--c-white);
+	--btn-border: var(--btn-bg);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .55rem;
+	padding: .85rem 1.6rem;
+	border: 2px solid var(--btn-border);
+	border-radius: var(--radius-pill);
+	background: var(--btn-bg);
+	color: var(--btn-fg);
+	font-family: var(--f-heading);
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.2;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background var(--t), color var(--t), border-color var(--t), transform var(--t), box-shadow var(--t);
+
+	.icon {
+		transition: transform var(--t);
+	}
+
+	&:hover {
+		color: var(--btn-fg);
+		transform: translateY(-1px);
+		box-shadow: var(--shadow);
+
+		.icon-arrow-right {
+			transform: translateX(3px);
+		}
+	}
+
+	&:active {
+		transform: none;
+	}
+
+	&--primary {
+		&:hover {
+			--btn-bg: var(--c-accent-dark);
+		}
+	}
+
+	&--secondary {
+		--btn-bg: var(--c-primary);
+
+		&:hover {
+			--btn-bg: var(--c-primary-dark);
+		}
+	}
+
+	&--white {
+		--btn-bg: var(--c-white);
+		--btn-fg: var(--c-primary);
+
+		&:hover {
+			--btn-fg: var(--c-accent);
+		}
+	}
+
+	&--outline {
+		--btn-bg: transparent;
+		--btn-fg: var(--c-primary);
+		--btn-border: var(--c-line);
+
+		&:hover {
+			--btn-border: var(--c-primary);
+			--btn-fg: var(--c-primary);
+			box-shadow: none;
+		}
+	}
+
+	&--outline-light {
+		--btn-bg: transparent;
+		--btn-fg: var(--c-white);
+		--btn-border: rgba(255, 255, 255, .5);
+
+		&:hover {
+			--btn-bg: rgba(255, 255, 255, .1);
+			--btn-border: var(--c-white);
+		}
+	}
+
+	&--ghost {
+		--btn-bg: transparent;
+		--btn-fg: var(--c-muted);
+		--btn-border: transparent;
+
+		&:hover {
+			--btn-fg: var(--c-ink);
+			box-shadow: none;
+		}
+	}
+
+	&--sm {
+		padding: .6rem 1.15rem;
+		font-size: .9375rem;
+	}
+
+	&--block {
+		display: flex;
+		width: 100%;
+	}
+
+	&[disabled],
+	&.is-loading {
+		opacity: .65;
+		pointer-events: none;
+	}
+}
+
+.btn-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .75rem;
+
+	&--center {
+		justify-content: center;
+		margin-top: 2.5rem;
+	}
+}

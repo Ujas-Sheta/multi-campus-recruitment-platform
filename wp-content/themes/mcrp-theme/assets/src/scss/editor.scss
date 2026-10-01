@@ -1,0 +1,51 @@
+// Block editor styles - loaded via add_editor_style(), automatically scoped to
+// .editor-styles-wrapper so ACF block previews match the front end.
+
+@use 'abstracts/tokens';
+@use 'base/typography';
+@use 'layout/container';
+@use 'components/buttons';
+@use 'components/badges';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/ui';
+@use 'blocks/hero';
+@use 'blocks/blocks';
+
+body {
+	font-family: var(--f-body);
+	color: var(--c-ink);
+	line-height: 1.65;
+}
+
+.icon {
+	width: 1.15em;
+	height: 1.15em;
+	vertical-align: -.2em;
+}
+
+img { max-width: 100%; height: auto; }
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.hp { display: none; }
+
+// Previews are not interactive.
+.mcrp-block a,
+.mcrp-block button,
+.mcrp-block input,
+.mcrp-block select,
+.mcrp-block textarea {
+	pointer-events: none;
+}
+
+.section-block .block-editor-inner-blocks,
+.section-block .block-editor-inner-blocks * {
+	pointer-events: auto;
+}

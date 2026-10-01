@@ -1,0 +1,62 @@
+// Tokens from the Figma file (Campus UI).
+// If you change colours/fonts here update theme.json as well.
+
+$color-primary: #12355b;
+$color-primary-dark: #0b2440;
+$color-accent: #e4572e;
+$color-accent-dark: #c4421d;
+$color-secondary: #2a9d8f;
+$color-sun: #f4b942;
+$color-ink: #14213d;
+$color-muted: #5c677d;
+$color-line: #e3e7ee;
+$color-surface: #f5f7fa;
+$color-white: #fff;
+
+$font-heading: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+$font-body: Inter, 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+$container: 1240px;
+$container-narrow: 760px;
+
+$breakpoints: (
+	sm: 600px,
+	md: 782px,
+	lg: 1024px,
+	xl: 1280px,
+);
+
+:root {
+	--c-primary: #{$color-primary};
+	--c-primary-dark: #{$color-primary-dark};
+	--c-accent: #{$color-accent};
+	--c-accent-dark: #{$color-accent-dark};
+	--c-secondary: #{$color-secondary};
+	--c-sun: #{$color-sun};
+	--c-ink: #{$color-ink};
+	--c-muted: #{$color-muted};
+	--c-line: #{$color-line};
+	--c-surface: #{$color-surface};
+	--c-white: #{$color-white};
+
+	--f-heading: #{$font-heading};
+	--f-body: #{$font-body};
+
+	--radius-sm: 8px;
+	--radius: 14px;
+	--radius-lg: 24px;
+	--radius-pill: 999px;
+
+	--shadow-sm: 0 1px 2px rgba(20, 33, 61, .06), 0 1px 3px rgba(20, 33, 61, .08);
+	--shadow: 0 8px 24px -8px rgba(20, 33, 61, .18);
+	--shadow-lg: 0 24px 48px -16px rgba(20, 33, 61, .28);
+
+	--gutter: clamp(1rem, 4vw, 2rem);
+	--space-section: clamp(3.5rem, 8vw, 6.5rem);
+	--space-section-md: clamp(2.5rem, 5vw, 4rem);
+	--space-section-sm: clamp(1.5rem, 3vw, 2.5rem);
+	--header-h: 76px;
+
+	--ease: cubic-bezier(.2, .7, .2, 1);
+	--t: .2s var(--ease);
+}
