@@ -203,7 +203,7 @@
 // Sticky in-page nav
 .subnav {
 	position: sticky;
-	top: var(--header-h);
+	top: calc(var(--header-h) + var(--admin-bar, 0px));
 	z-index: 50;
 	background: var(--c-white);
 	border-bottom: 1px solid var(--c-line);
@@ -238,7 +238,7 @@
 	padding-bottom: clamp(2rem, 4vw, 3rem);
 	margin-bottom: clamp(2rem, 4vw, 3rem);
 	border-bottom: 1px solid var(--c-line);
-	scroll-margin-top: calc(var(--header-h) + 70px);
+	scroll-margin-top: calc(var(--header-h) + var(--admin-bar, 0px) + 70px);
 
 	&:last-child {
 		border-bottom: 0;

@@ -16,9 +16,10 @@ while ( have_posts() ) :
 	$delivery    = mcrp_term_names( $pid, 'delivery_mode' );
 	$campuses    = mcrp_q( 'campuses_for_program', $pid );
 	$intakes     = mcrp_intake_labels( mcrp_get( 'intakes', $pid, array() ) );
-	$courses     = (array) mcrp_get( 'courses', $pid, array() );
-	$careers     = (array) mcrp_get( 'career_outcomes', $pid, array() );
-	$highlights  = (array) mcrp_get( 'highlights', $pid, array() );
+	$courses     = array_filter( (array) mcrp_get( 'courses', $pid, array() ), static fn( $row ) => ! empty( $row['name'] ) );
+	// skip empty repeater rows (e.g. a row added in the admin but left blank)
+	$careers     = array_filter( (array) mcrp_get( 'career_outcomes', $pid, array() ), static fn( $row ) => ! empty( $row['title'] ) );
+	$highlights  = array_filter( (array) mcrp_get( 'highlights', $pid, array() ), static fn( $row ) => ! empty( $row['text'] ) );
 	$instructors = mcrp_q( 'instructors_for_program', $pid );
 	$events      = mcrp_q( 'upcoming_events', array( 'program' => $pid, 'limit' => 3 ) );
 	$t_ids       = mcrp_get( 'testimonials', $pid );

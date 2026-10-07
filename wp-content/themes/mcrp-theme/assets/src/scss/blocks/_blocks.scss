@@ -152,7 +152,7 @@
 	&--split &__head {
 		@include up(lg) {
 			position: sticky;
-			top: calc(var(--header-h) + 2rem);
+			top: calc(var(--header-h) + var(--admin-bar, 0px) + 2rem);
 		}
 	}
 

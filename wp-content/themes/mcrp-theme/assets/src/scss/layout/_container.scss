@@ -80,6 +80,11 @@
 		padding-block: var(--space-section-md);
 	}
 
+	// stretch the sidebar to the full row height so the sticky form inside it can stick
+	&__aside {
+		align-self: stretch;
+	}
+
 	&__main > h2:first-child {
 		margin-top: 0;
 	}
@@ -88,7 +93,7 @@
 .sticky {
 	@include up(lg) {
 		position: sticky;
-		top: calc(var(--header-h) + 1.5rem);
+		top: calc(var(--header-h) + var(--admin-bar, 0px) + 1.5rem);
 	}
 }
 

@@ -20,9 +20,20 @@
 	}
 }
 
+// WP admin bar (logged-in users) is fixed at the top, so push sticky things below it
+body.admin-bar {
+	@media (min-width: 783px) {
+		--admin-bar: 32px;
+	}
+
+	@media (min-width: 601px) and (max-width: 782px) {
+		--admin-bar: 46px;
+	}
+}
+
 .site-header {
 	position: sticky;
-	top: 0;
+	top: var(--admin-bar, 0px);
 	z-index: 100;
 	background: rgba(255, 255, 255, .97);
 	backdrop-filter: saturate(180%) blur(8px);
@@ -32,10 +43,9 @@
 	&.is-scrolled {
 		box-shadow: var(--shadow);
 
+		// hide the utility bar once scrolled so the header is exactly --header-h tall
 		.utility-bar {
-			@include up(lg) {
-				margin-top: -37px;
-			}
+			max-height: 0;
 		}
 	}
 
@@ -65,7 +75,9 @@
 	background: var(--c-primary);
 	color: rgba(255, 255, 255, .9);
 	font-size: .8125rem;
-	transition: margin var(--t);
+	max-height: 37px;
+	overflow: hidden;
+	transition: max-height var(--t);
 
 	@include up(lg) {
 		display: block;

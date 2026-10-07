@@ -11,7 +11,11 @@ export default function initSubnav() {
 						links.forEach((l) => l.classList.remove('is-active'));
 						const link = map.get(entry.target.id);
 						link?.classList.add('is-active');
-						link?.scrollIntoView({ block: 'nearest', inline: 'center' });
+						// only scroll the subnav list sideways - scrollIntoView here interrupts the page scroll
+						if (link) {
+							const list = link.closest('ul');
+							list.scrollTo({ left: link.offsetLeft - (list.clientWidth - link.offsetWidth) / 2, behavior: 'smooth' });
+						}
 					}
 				});
 			},
